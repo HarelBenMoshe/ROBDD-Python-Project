@@ -1,0 +1,80 @@
+
+========================================
+Testing Formula: Q3a
+Expression: (q and H_neg_p) or (not p or XFr)
+Variable Order: ['p', 'q', 'H_neg_p', 'XFr']
+----------------------------------------
+ROBDD Structure:
+Var: p
+  0 ->       Result: 1
+  1 ->       Var: q
+        0 ->             Var: XFr
+              0 ->                   Result: 0
+              1 ->                   Result: 1
+        1 ->             Var: H_neg_p
+              0 ->                   Var: XFr
+                    0 ->                         Result: 0
+                    1 ->                         Result: 1
+              1 ->                   Result: 1
+
+========================================
+Testing Formula: Q3b
+Expression: not p or q_Until_r_and_Fs
+Variable Order: ['p', 'q_Until_r_and_Fs']
+----------------------------------------
+ROBDD Structure:
+Var: p
+  0 ->       Result: 1
+  1 ->       Var: q_Until_r_and_Fs
+        0 ->             Result: 0
+        1 ->             Result: 1
+
+========================================
+Testing Formula: Q4 (Main Logic)
+Expression: not Phi1 or not Phi2
+Variable Order: ['Phi1', 'Phi2']
+----------------------------------------
+ROBDD Structure:
+Var: Phi1
+  0 ->       Result: 1
+  1 ->       Var: Phi2
+        0 ->             Result: 1
+        1 ->             Result: 0
+
+========================================
+Testing Formula: Q4 (Phi1 Internal)
+Expression: not p or Xq
+Variable Order: ['p', 'Xq']
+----------------------------------------
+ROBDD Structure:
+Var: p
+  0 ->       Result: 1
+  1 ->       Var: Xq
+        0 ->             Result: 0
+        1 ->             Result: 1
+
+========================================
+Testing Formula: Q4 (Phi2 Internal)
+Expression: p or q
+Variable Order: ['p', 'q']
+----------------------------------------
+ROBDD Structure:
+Var: p
+  0 ->       Var: q
+        0 ->             Result: 0
+        1 ->             Result: 1
+  1 ->       Result: 1
+
+========================================
+Testing Formula: My Formula (XOR)
+Expression: (a and not b) or (not a and b)
+Variable Order: ['a', 'b']
+----------------------------------------
+ROBDD Structure:
+Var: a
+  0 ->       Var: b
+        0 ->             Result: 0
+        1 ->             Result: 1
+  1 ->       Var: b
+        0 ->             Result: 1
+        1 ->             Result: 0
