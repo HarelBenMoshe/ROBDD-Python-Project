@@ -53,6 +53,6 @@ run_test("Q4 (Phi2 Internal)", "p or q", ['p', 'q'])
 # ==========================================
 
 # נוסחת XOR (משלנו)
-my_formula = "(a and not b) or (not a and b)"
-my_vars = ['a', 'b']
-run_test("My Formula (XOR)", my_formula, my_vars)
+my_formula = "(a and not c) or ((b and not d) or (not b and d))"
+my_vars = ['a', 'b', 'c', 'd']
+run_test("My Formula", my_formula, my_vars)

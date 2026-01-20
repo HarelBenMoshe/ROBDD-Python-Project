@@ -1,4 +1,3 @@
-
 ========================================
 Testing Formula: Q3a
 Expression: (q and H_neg_p) or (not p or XFr)
@@ -66,15 +65,27 @@ Var: p
   1 ->       Result: 1
 
 ========================================
-Testing Formula: My Formula (XOR)
-Expression: (a and not b) or (not a and b)
-Variable Order: ['a', 'b']
+Testing Formula: My Formula
+Expression: (a and not c) or ((b and not d) or (not b and d))
+Variable Order: ['a', 'b', 'c', 'd']
 ----------------------------------------
 ROBDD Structure:
 Var: a
   0 ->       Var: b
-        0 ->             Result: 0
-        1 ->             Result: 1
+        0 ->             Var: d
+              0 ->                   Result: 0
+              1 ->                   Result: 1
+        1 ->             Var: d
+              0 ->                   Result: 1
+              1 ->                   Result: 0
   1 ->       Var: b
-        0 ->             Result: 1
-        1 ->             Result: 0
+        0 ->             Var: c
+              0 ->                   Result: 1
+              1 ->                   Var: d
+                    0 ->                         Result: 0
+                    1 ->                         Result: 1
+        1 ->             Var: c
+              0 ->                   Result: 1
+              1 ->                   Var: d
+                    0 ->                         Result: 1
+                    1 ->                         Result: 0
